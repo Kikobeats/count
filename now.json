@@ -11,7 +11,6 @@
     }
   ],
   "env": {
-    "API_KEY": "@pageviews_api_key",
     "DB_URI": "@pageviews_db_uri"
   },
   "routes": [
@@ -19,7 +18,7 @@
       "src": "/(.*)",
       "dest": "/",
       "headers": {
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "https://kikobeats.com"
       }
     }
   ]

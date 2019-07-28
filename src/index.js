@@ -9,7 +9,6 @@ const { get, init, increment } = require('./db')
 const { API_KEY } = require('./constants')
 
 const helmet = promisify(require('helmet')())
-const cors = promisify(require('cors')())
 
 const rateLimiterMemory = new RateLimiterMemory({
   points: 10,
@@ -29,6 +28,11 @@ const rateLimit = async (req, res, next) => {
 const authentication = (req, res, next) => {
   const apiKey = req.headers['x-api-key'] || req.query.key || req.query.apiKey
   return apiKey === API_KEY ? next() : send(res, 403)
+}
+
+const cors = (req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  next()
 }
 
 const getId = req => {

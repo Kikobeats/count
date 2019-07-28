@@ -1,10 +1,15 @@
-# pageviews-microservice
+# Pageviews Microservice
+
+<p align="center">
+  <br>
+  <img src="/demo.png">
+  <br>
+</p>
 
 ![Last version](https://img.shields.io/github/tag/Kikobeats/pageviews-microservice.svg?style=flat-square)
 [![Build Status](https://img.shields.io/travis/com/Kikobeats/pageviews-microservice/master.svg?style=flat-square)](https://travis-ci.com/Kikobeats/pageviews-microservice)
 [![Dependency status](https://img.shields.io/david/Kikobeats/pageviews-microservice.svg?style=flat-square)](https://david-dm.org/Kikobeats/pageviews-microservice)
 [![Dev Dependencies Status](https://img.shields.io/david/dev/Kikobeats/pageviews-microservice.svg?style=flat-square)](https://david-dm.org/Kikobeats/pageviews-microservice#info=devDependencies)
-[![NPM Status](https://img.shields.io/npm/dm/pageviews-microservice.svg?style=flat-square)](https://www.npmjs.org/package/pageviews-microservice)
 
 > A simple microservice for counting page views and timestamp over time. Inspired by [antirez.com](http://antirez.com) & [rauchg.com](https://rauchg.com/).
 

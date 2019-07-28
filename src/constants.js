@@ -12,6 +12,14 @@ if (!DB_URI) {
   )
 }
 
+if (!API_KEY) {
+  console.log(
+    `${chalk.yellow(
+      'warning'
+    )} \`API_KEY\` not set, anyone can increment your counters.`
+  )
+}
+
 const isProduction = NODE_ENV === 'production'
 
 const LOG_FORMAT =

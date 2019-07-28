@@ -30,11 +30,6 @@ const authentication = (req, res, next) => {
   return apiKey === API_KEY ? next() : send(res, 403)
 }
 
-const cors = (req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  next()
-}
-
 const getId = req => {
   let id = req.params.id
   if (id.startsWith('/')) id = id.substring(1)
@@ -72,7 +67,6 @@ const normalize = handler => async (
 
 module.exports = applyMiddleware(count, [
   normalize,
-  decorate(cors),
   decorate(helmet),
   decorate(authentication),
   decorate(rateLimit)

@@ -1,8 +1,12 @@
 {
+  "name": "pageviews",
+  "alias": [
+    "pageviews.kikobeats.com"
+  ],
   "version": 2,
   "builds": [
     {
-      "src": "src/index.js",
+      "src": "index.js",
       "use": "@now/node"
     }
   ]

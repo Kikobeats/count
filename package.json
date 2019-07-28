@@ -5,8 +5,8 @@
   "version": "0.0.0",
   "main": "src/index.js",
   "author": {
-    "name": "Kiko Beats",
     "email": "josefrancisco.verdu@gmail.com",
+    "name": "Kiko Beats",
     "url": "https://kikobeats.com"
   },
   "repository": {
@@ -45,15 +45,21 @@
     "prettier-standard": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
-    "standard-version": "latest"
+    "standard-version": "latest",
+    "untracked": "latest"
   },
   "engines": {
     "node": ">= 10"
   },
+  "files": [
+    "index.js",
+    "src"
+  ],
   "scripts": {
-    "dev": "DEBUG=pageviews-microservice* NODE_ENV=development micro-dev",
+    "build": "untracked > .nowignore",
     "clean": "rm -rf node_modules",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "dev": "DEBUG=pageviews-microservice* NODE_ENV=development micro-dev",
     "lint": "standard-markdown README.md && standard",
     "postrelease": "npm run release:tags && npm run release:github && npm publish",
     "precommit": "lint-staged",
@@ -62,6 +68,7 @@
     "release": "git-authors-cli finepack && git add package.json && standard-version -a",
     "release:github": "conventional-github-releaser -p angular",
     "release:tags": "git push --follow-tags origin master",
+    "start": "NODE_ENV=production micro",
     "test": "nyc ava",
     "update": "ncu -a",
     "update:check": "ncu -- --error-level 2"

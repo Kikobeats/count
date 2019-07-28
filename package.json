@@ -3,7 +3,7 @@
   "description": "Count page views visitors per URL as microservice",
   "homepage": "https://nicedoc.io/Kikobeats/pageviews-microservice",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
     "name": "Kiko Beats",

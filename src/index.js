@@ -31,8 +31,15 @@ const authentication = (req, res, next) => {
   return apiKey === API_KEY ? next() : send(res, 403)
 }
 
+const getId = req => {
+  let id = req.params.id
+  if (id.startsWith('/')) id = id.substring(1)
+  if (id.endsWith('/')) id = id.substring(0, id.length - 1)
+  return id
+}
+
 const count = async (req, res) => {
-  const { id } = req.params
+  const id = getId(req)
   let data = await get(id)
   data = await (data === undefined ? init : increment)(id, data)
   return send(res, 201, data)
@@ -49,7 +56,11 @@ const decorate = fn => handler => (req, res, ...rest) => {
   return fn(req, res, next)
 }
 
-const normalize = handler => async (req, res, { params, query }) => {
+const normalize = handler => async (
+  req,
+  res,
+  { params = {}, query = {} } = {}
+) => {
   req.params = params
   req.query = query
   return handler(req, res)

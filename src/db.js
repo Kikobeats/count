@@ -1,10 +1,13 @@
 'use strict'
 
+const KeyvRedis = require('@keyv/redis')
 const Keyv = require('keyv')
 
 const { DB_URI } = require('./constants')
 
-const keyv = new Keyv(DB_URI)
+const redis = new KeyvRedis(DB_URI)
+
+const keyv = new Keyv({ store: redis })
 
 const init = async (id, data) => {
   const now = Date.now()

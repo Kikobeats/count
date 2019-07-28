@@ -31,7 +31,6 @@
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
-    "ava": "latest",
     "conventional-github-releaser": "latest",
     "coveralls": "latest",
     "finepack": "latest",
@@ -39,9 +38,8 @@
     "git-dirty": "latest",
     "husky": "latest",
     "lint-staged": "latest",
-    "micro-dev": "~3.0.0",
+    "micro-dev": "latest",
     "npm-check-updates": "latest",
-    "nyc": "latest",
     "prettier-standard": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
@@ -69,7 +67,7 @@
     "release:github": "conventional-github-releaser -p angular",
     "release:tags": "git push --follow-tags origin master",
     "start": "NODE_ENV=production micro",
-    "test": "nyc ava",
+    "test": "exit 0",
     "update": "ncu -a",
     "update:check": "ncu -- --error-level 2"
   },

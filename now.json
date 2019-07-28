@@ -16,7 +16,7 @@
   },
   "routes": [
     {
-      "src": "/*",
+      "src": "/(.*)",
       "dest": "/",
       "headers": {
         "Access-Control-Allow-Origin": "*"

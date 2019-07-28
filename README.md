@@ -7,7 +7,7 @@
 
 A simple microservice for counting page views and embedding them in your site.
 
-![](demo.png)
+![](demo.gif)
 
 It's inspired by [antirez.com](http://antirez.com) & [rauchg.com](https://rauchg.com/).
 

@@ -16,8 +16,11 @@
   },
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "/"
+      "src": "/*",
+      "dest": "/",
+      "headers": {
+        "Access-Control-Allow-Origin": "*"
+      }
     }
   ]
 }

@@ -1,8 +1,5 @@
 {
   "name": "pageviews",
-  "alias": [
-    "pageviews.kikobeats.com"
-  ],
   "version": 2,
   "regions": [
     "all"

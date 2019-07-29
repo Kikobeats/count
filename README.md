@@ -11,7 +11,7 @@ A simple microservice for counting things.
 
 It's inspired by [antirez.com](http://antirez.com) and [rauchg.com](https://rauchg.com/).
 
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/Kikobeats/count-microservice&env=API_KEY&env=FIRESTORE_PROJECT_ID&env=FIRESTORE_COLLECTION_NAME&env=FIRESTORE_PRIVATE_KEY&env=FIRESTORE_CLIENT_EMAIL)
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/Kikobeats/count-microservice&env=API_KEY&env=FIRESTORE_PROJECT_ID&env=FIRESTORE_PRIVATE_KEY&env=FIRESTORE_CLIENT_EMAIL)
 
 # Usage
 
@@ -22,7 +22,7 @@ Imagine you are visiting a blog post and you want to count views.
 Just pass the blog post relative path for counting pageviews:
 
 ```
-kikobeats.com/culture-shipping → count.now.sh/culture-shipping → HTTP 201 Created
+kikobeats.com/culture-shipping → count.now.sh/culture-shipping?increment&collection=pageviews → HTTP 201 Created
 ```
 
 The service will return you the current counter, and the first and last timestamp associated:
@@ -35,8 +35,10 @@ The service will return you the current counter, and the first and last timestam
 }
 ```
 
+For counting thing, you need to perform a `GET` to `count.now.sh/:id`, being supported the following query string:
 
-For counting thing, you need to perform a `GET` to `count.now.sh/:id`.
+- **collection** (Required): The collection name where increment the value.
+- **increment**|**incr**: When it is present, it specifies how much increment the value.
 
 It doesn't matter if your `id` contains final slash; it will be sanitized.
 
@@ -44,7 +46,7 @@ For printing the value in your website, a representative code for doing that cou
 
 ```html
 <script>
-  fetch('https://count.now.sh' + window.location.pathname + '?key=' + window.PAGEVIEWS_API_KEY)
+  fetch('https://count.now.sh' + window.location.pathname + '?increment&collection=pageviews)
     .then(res => res.json())
     .then(({ pageviews }) => {
       document.querySelector('.pageviews-container').classList.remove('display-none')
@@ -64,12 +66,6 @@ The service is backed at [Firebase](https://firebase.com/). You need to create a
 Type: `string`
 
 The project id to use.
-
-### FIRESTORE_COLLECTION_NAME
-
-Type: `string`
-
-The collection name to use.
 
 ### FIRESTORE_PRIVATE_KEY
 

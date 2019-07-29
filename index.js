@@ -3,7 +3,7 @@
 const dispatch = require('micro-route/dispatch')
 const { send } = require('micro')
 
-const { upsert } = require('./src')
+const upsert = require('./src')
 
 module.exports = dispatch()
   .dispatch('/', 'GET', (req, res) => send(res, 204, null))

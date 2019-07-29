@@ -14,7 +14,6 @@
   "env": {
     "API_KEY": "@count.api_key",
     "FIRESTORE_PROJECT_ID": "@count.firestore_project_id",
-    "FIRESTORE_COLLECTION_NAME": "@count.firestore_collection_name",
     "FIRESTORE_PRIVATE_KEY": "@count.firestore_private_key",
     "FIRESTORE_CLIENT_EMAIL": "@count.firestore_client_email"
   },

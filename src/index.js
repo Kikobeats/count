@@ -5,7 +5,7 @@ const requestIp = require('request-ip')
 const { promisify } = require('util')
 const { send } = require('micro')
 
-const { get, init, increment } = require('./db')
+const createDb = require('./db')
 const { RATE_LIMIT_WINDOW, RATE_LIMIT_MAX, API_KEY } = require('./constants')
 
 const helmet = promisify(require('helmet')())
@@ -39,12 +39,14 @@ const getId = req => {
 
 const upsert = async (req, res) => {
   const id = getId(req)
+  const quantity = req.query.incr || req.query.increment
 
+  const { get, init, increment } = createDb(req.query.collection)
   let data = (await get(id)) || { count: 0 }
   let status = 200
 
-  if (req.query.count !== undefined) {
-    data = await (data === undefined ? init : increment)(id, data)
+  if (quantity !== undefined) {
+    data = await (data === undefined ? init : increment)(id, data, quantity)
     status = 201
   }
 
@@ -80,6 +82,4 @@ const middlewares = [
   RATE_LIMIT_MAX && RATE_LIMIT_WINDOW && decorate(rateLimit)
 ]
 
-module.exports = {
-  upsert: applyMiddleware(upsert, middlewares)
-}
+module.exports = applyMiddleware(upsert, middlewares)

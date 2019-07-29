@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.16](https://github.com/Kikobeats/count-microservice/compare/v1.0.15...v1.0.16) (2019-07-29)
+
+
+### Bug Fixes
+
+* incr alias ([f630945](https://github.com/Kikobeats/count-microservice/commit/f630945))
+
+
+### Build System
+
+* ensure private key is base64 ([a034333](https://github.com/Kikobeats/count-microservice/commit/a034333))
+
+
+
 ### [1.0.15](https://github.com/Kikobeats/count-microservice/compare/v1.0.14...v1.0.15) (2019-07-29)
 
 

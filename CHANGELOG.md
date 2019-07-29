@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.13](https://github.com/Kikobeats/count-microservice/compare/v1.0.12...v1.0.13) (2019-07-29)
+
+
+### Build System
+
+* rename into count-microservice ([f4018a8](https://github.com/Kikobeats/count-microservice/commit/f4018a8))
+
+
+
 ### [1.0.12](https://github.com/Kikobeats/pageviews-microservice/compare/v1.0.11...v1.0.12) (2019-07-28)
 
 

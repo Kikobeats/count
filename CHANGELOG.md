@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.15](https://github.com/Kikobeats/count-microservice/compare/v1.0.14...v1.0.15) (2019-07-29)
+
+
+### Build System
+
+* setup collection as param ([5e6944b](https://github.com/Kikobeats/count-microservice/commit/5e6944b))
+
+
+
 ### [1.0.14](https://github.com/Kikobeats/count-microservice/compare/v1.0.12...v1.0.14) (2019-07-29)
 
 

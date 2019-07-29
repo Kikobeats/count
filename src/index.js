@@ -41,7 +41,7 @@ const upsert = async (req, res) => {
   const id = getId(req)
   const quantity = req.query.incr || req.query.increment
 
-  const { get, init, increment } = createDb(req.query.collection)
+  const { get, init, increment } = createDb(req.params.collection)
   let data = (await get(id)) || { count: 0 }
   let status = 200
 

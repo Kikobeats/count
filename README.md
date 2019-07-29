@@ -22,7 +22,7 @@ Imagine you are visiting a blog post and you want to count views.
 Just pass the blog post relative path for counting pageviews:
 
 ```
-kikobeats.com/culture-shipping → count.now.sh/culture-shipping?increment&collection=pageviews → HTTP 201 Created
+kikobeats.com/culture-shipping → count.now.sh/pageviews/culture-shipping?incr → HTTP 201 Created
 ```
 
 The service will return you the current counter, and the first and last timestamp associated:
@@ -35,9 +35,8 @@ The service will return you the current counter, and the first and last timestam
 }
 ```
 
-For counting thing, you need to perform a `GET` to `count.now.sh/:id`, being supported the following query string:
+For counting thing, you need to perform a `GET` to `count.now.sh/:collection/:id`, being supported the following query string:
 
-- **collection** (Required): The collection name where increment the value.
 - **increment**|**incr**: When it is present, it specifies how much increment the value.
 
 It doesn't matter if your `id` contains final slash; it will be sanitized.

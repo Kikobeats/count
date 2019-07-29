@@ -39,7 +39,10 @@ const getId = req => {
 
 const upsert = async (req, res) => {
   const id = getId(req)
-  const quantity = req.query.incr || req.query.increment
+  const quantity =
+    req.query.incr !== undefined
+      ? req.query.incr
+      : req.query.increment !== undefined && req.query.increment
 
   const { get, init, increment } = createDb(req.params.collection)
   let data = (await get(id)) || { count: 0 }

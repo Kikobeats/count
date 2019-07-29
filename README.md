@@ -72,6 +72,8 @@ Type: `string`
 
 Your private key associated with your Firebase account.
 
+It should be encoded in base64.
+
 ### FIRESTORE_CLIENT_EMAIL
 
 Type: `string`

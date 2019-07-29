@@ -9,23 +9,18 @@ const {
   FIRESTORE_CLIENT_EMAIL
 } = require('./constants')
 
-module.exports = collection => {
-  const firebase = new KeyvFirestore({
+const createFirebase = collection =>
+  new KeyvFirestore({
     projectId: FIRESTORE_PROJECT_ID,
     collection,
     credentials: {
-      private_key: (() => {
-        const begin = '-----BEGIN PRIVATE KEY-----\n'
-        const end = '\n-----END PRIVATE KEY-----\n'
-        const key = FIRESTORE_PRIVATE_KEY.replace(/\\n/g, '\n')
-          .replace(begin, '')
-          .replace(end, '')
-        return `${begin}${key}${end}`
-      })(),
+      private_key: Buffer.from(FIRESTORE_PRIVATE_KEY, 'base64').toString(),
       client_email: FIRESTORE_CLIENT_EMAIL
     }
   })
 
+module.exports = collection => {
+  const firebase = createFirebase(collection)
   const keyv = new Keyv({ store: firebase })
 
   const init = async (id, data) => {

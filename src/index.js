@@ -6,13 +6,13 @@ const { promisify } = require('util')
 const { send } = require('micro')
 
 const { get, init, increment } = require('./db')
-const { API_KEY } = require('./constants')
+const { RATE_LIMIT_WINDOW, RATE_LIMIT_MAX, API_KEY } = require('./constants')
 
 const helmet = promisify(require('helmet')())
 
 const rateLimiterMemory = new RateLimiterMemory({
-  points: 10,
-  duration: 3600
+  points: RATE_LIMIT_MAX,
+  duration: RATE_LIMIT_WINDOW / 1000
 })
 
 const rateLimit = async (req, res, next) => {
@@ -37,15 +37,23 @@ const getId = req => {
   return id
 }
 
-const count = async (req, res) => {
+const upsert = async (req, res) => {
   const id = getId(req)
-  let data = await get(id)
-  data = await (data === undefined ? init : increment)(id, data)
-  return send(res, 201, data)
+
+  let data = (await get(id)) || { count: 0 }
+  let status = 200
+
+  if (req.query.count !== undefined) {
+    data = await (data === undefined ? init : increment)(id, data)
+    status = 201
+  }
+
+  return send(res, status, data)
 }
 
 const applyMiddleware = (service, middlewares = []) => {
   return middlewares
+    .filter(Boolean)
     .reverse()
     .reduce((fn, nextMiddleware) => nextMiddleware(fn), service)
 }
@@ -65,9 +73,13 @@ const normalize = handler => async (
   return handler(req, res)
 }
 
-module.exports = applyMiddleware(count, [
+const middlewares = [
   normalize,
   decorate(helmet),
   decorate(authentication),
-  decorate(rateLimit)
-])
+  RATE_LIMIT_MAX && RATE_LIMIT_WINDOW && decorate(rateLimit)
+]
+
+module.exports = {
+  upsert: applyMiddleware(upsert, middlewares)
+}

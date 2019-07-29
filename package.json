@@ -1,7 +1,7 @@
 {
-  "name": "pageviews-microservice",
-  "description": "Count page views visitors per URL as microservice",
-  "homepage": "https://nicedoc.io/Kikobeats/pageviews-microservice",
+  "name": "count-microservice",
+  "description": "A simple microservice for counting things",
+  "homepage": "https://nicedoc.io/Kikobeats/count-microservice",
   "version": "1.0.12",
   "main": "index.js",
   "author": {
@@ -11,17 +11,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kikobeats/pageviews-microservice.git"
+    "url": "git+https://github.com/Kikobeats/count-microservice.git"
   },
   "bugs": {
-    "url": "https://github.com/Kikobeats/pageviews-microservice/issues"
+    "url": "https://github.com/Kikobeats/count-microservice/issues"
   },
   "keywords": [],
   "dependencies": {
-    "@keyv/redis": "~1.3.8",
     "chalk": "~2.4.2",
     "helmet": "~3.20.0",
     "keyv": "~3.1.0",
+    "keyv-firestore": "~1.0.0",
     "micro": "~9.3.4",
     "micro-route": "~2.5.0",
     "rate-limiter-flexible": "~1.1.1",
@@ -56,7 +56,7 @@
     "build": "untracked > .nowignore",
     "clean": "rm -rf node_modules",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "dev": "DEBUG=pageviews-microservice* NODE_ENV=development micro-dev",
+    "dev": "DEBUG=count-microservice* NODE_ENV=development micro-dev",
     "lint": "standard-markdown README.md && standard",
     "postrelease": "npm run release:tags && npm run release:github",
     "precommit": "lint-staged",

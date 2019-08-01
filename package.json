@@ -31,7 +31,6 @@
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "conventional-github-releaser": "latest",
-    "coveralls": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
     "git-dirty": "latest",
@@ -55,7 +54,6 @@
   "scripts": {
     "build": "untracked > .nowignore",
     "clean": "rm -rf node_modules",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "dev": "NODE_ENV=development micro-dev",
     "lint": "standard-markdown README.md && standard",
     "postrelease": "npm run release:tags && npm run release:github",

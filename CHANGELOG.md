@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.17](https://github.com/Kikobeats/count-microservice/compare/v1.0.16...v1.0.17) (2019-08-01)
+
+
+### Build System
+
+* mode 204 routes ([3cbea7f](https://github.com/Kikobeats/count-microservice/commit/3cbea7f))
+* remove precommit ([d4e4daf](https://github.com/Kikobeats/count-microservice/commit/d4e4daf))
+
+
+
 ### [1.0.16](https://github.com/Kikobeats/count-microservice/compare/v1.0.15...v1.0.16) (2019-07-29)
 
 

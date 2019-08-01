@@ -68,18 +68,7 @@ const decorate = fn => handler => (req, res, ...rest) => {
   return fn(req, res, next)
 }
 
-const normalize = handler => async (
-  req,
-  res,
-  { params = {}, query = {} } = {}
-) => {
-  req.params = params
-  req.query = query
-  return handler(req, res)
-}
-
 const middlewares = [
-  normalize,
   decorate(helmet),
   decorate(authentication),
   RATE_LIMIT_MAX && RATE_LIMIT_WINDOW && decorate(rateLimit)

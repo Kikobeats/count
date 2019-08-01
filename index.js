@@ -3,7 +3,13 @@
 const dispatch = require('micro-route/dispatch')
 const { send } = require('micro')
 
-const upsert = require('./src')
+const decorate = fn => (req, res, { params = {}, query = {} } = {}) => {
+  req.params = params
+  req.query = query
+  return fn(req, res)
+}
+
+const upsert = decorate(require('./src'))
 
 module.exports = dispatch()
   .dispatch('/:collection/:id', 'GET', upsert)

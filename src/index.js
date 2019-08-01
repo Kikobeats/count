@@ -63,15 +63,15 @@ const applyMiddleware = (service, middlewares = []) => {
     .reduce((fn, nextMiddleware) => nextMiddleware(fn), service)
 }
 
-const decorate = fn => handler => (req, res, ...rest) => {
+const fromExpress = fn => handler => (req, res, ...rest) => {
   const next = () => handler(req, res, ...rest)
   return fn(req, res, next)
 }
 
 const middlewares = [
-  decorate(helmet),
-  decorate(authentication),
-  RATE_LIMIT_MAX && RATE_LIMIT_WINDOW && decorate(rateLimit)
+  fromExpress(helmet),
+  fromExpress(authentication),
+  RATE_LIMIT_MAX && RATE_LIMIT_WINDOW && fromExpress(rateLimit)
 ]
 
 module.exports = applyMiddleware(upsert, middlewares)

@@ -59,7 +59,6 @@
     "dev": "DEBUG=count-microservice* NODE_ENV=development micro-dev",
     "lint": "standard-markdown README.md && standard",
     "postrelease": "npm run release:tags && npm run release:github",
-    "precommit": "lint-staged",
     "prerelease": "npm run update:check",
     "pretest": "npm run lint",
     "release": "standard-version -a",

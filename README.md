@@ -1,9 +1,9 @@
-# count-microservice
+# count
 
-![Last version](https://img.shields.io/github/tag/Kikobeats/count-microservice.svg?style=flat-square)
-[![Build Status](https://img.shields.io/travis/com/Kikobeats/count-microservice/master.svg?style=flat-square)](https://travis-ci.com/Kikobeats/count-microservice)
-[![Dependency status](https://img.shields.io/david/Kikobeats/count-microservice.svg?style=flat-square)](https://david-dm.org/Kikobeats/count-microservice)
-[![Dev Dependencies Status](https://img.shields.io/david/dev/Kikobeats/count-microservice.svg?style=flat-square)](https://david-dm.org/Kikobeats/count-microservice#info=devDependencies)
+![Last version](https://img.shields.io/github/tag/Kikobeats/count.svg?style=flat-square)
+[![Build Status](https://img.shields.io/travis/com/Kikobeats/count/master.svg?style=flat-square)](https://travis-ci.com/Kikobeats/count)
+[![Dependency status](https://img.shields.io/david/Kikobeats/count.svg?style=flat-square)](https://david-dm.org/Kikobeats/count)
+[![Dev Dependencies Status](https://img.shields.io/david/dev/Kikobeats/count.svg?style=flat-square)](https://david-dm.org/Kikobeats/count#info=devDependencies)
 
 A simple microservice for counting things.
 
@@ -11,7 +11,7 @@ A simple microservice for counting things.
 
 It's inspired by [antirez.com](http://antirez.com) and [rauchg.com](https://rauchg.com/).
 
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/Kikobeats/count-microservice&env=API_KEY&env=FIRESTORE_PROJECT_ID&env=FIRESTORE_PRIVATE_KEY&env=FIRESTORE_CLIENT_EMAIL)
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/Kikobeats/count&env=API_KEY&env=FIRESTORE_PROJECT_ID&env=FIRESTORE_PRIVATE_KEY&env=FIRESTORE_CLIENT_EMAIL)
 
 # Usage
 
@@ -117,7 +117,7 @@ It defines a rate limit window, where the vlaue is the maximum number of points 
 
 ## License
 
-**count-microservice** © [Kiko Beats](https://kikobeats.com), released under the [MIT](https://github.com/Kikobeats/count-microservice/blob/master/LICENSE.md) License.<br>
-Authored and maintained by Kiko Beats with help from [contributors](https://github.com/Kikobeats/count-microservice/contributors).
+**count-microservice** © [Kiko Beats](https://kikobeats.com), released under the [MIT](https://github.com/Kikobeats/count/blob/master/LICENSE.md) License.<br>
+Authored and maintained by Kiko Beats with help from [contributors](https://github.com/Kikobeats/count/contributors).
 
 > [kikobeats.com](https://kikobeats.com) · GitHub [Kiko Beats](https://github.com/Kikobeats) · Twitter [@Kikobeats](https://twitter.com/Kikobeats)

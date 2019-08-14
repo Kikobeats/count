@@ -52,7 +52,7 @@
     "node": ">= 10"
   },
   "files": [
-    "index.js",
+    "bin",
     "src"
   ],
   "scripts": {

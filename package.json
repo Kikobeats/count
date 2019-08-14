@@ -3,7 +3,7 @@
   "description": "A simple microservice for counting things",
   "homepage": "https://nicedoc.io/Kikobeats/count-microservice",
   "version": "1.0.22",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
     "name": "Kiko Beats",
@@ -16,7 +16,11 @@
   "bugs": {
     "url": "https://github.com/Kikobeats/count-microservice/issues"
   },
-  "keywords": [],
+  "keywords": [
+    "count",
+    "microservice",
+    "pageviews"
+  ],
   "dependencies": {
     "chalk": "~2.4.2",
     "helmet": "~3.20.0",
@@ -67,6 +71,7 @@
     "update": "ncu -u",
     "update:check": "ncu -- --error-level 2"
   },
+  "private": true,
   "license": "MIT",
   "commitlint": {
     "extends": [

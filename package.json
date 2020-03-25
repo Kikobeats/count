@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "chalk": "~3.0.0",
-    "helmet": "~3.21.2",
+    "helmet": "~3.22.0",
     "keyv": "~4.0.0",
     "keyv-firestore": "~1.0.0",
     "micro": "~9.3.4",

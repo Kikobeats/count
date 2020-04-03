@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.31](https://github.com/Kikobeats/count-microservice/compare/v1.0.30...v1.0.31) (2020-04-03)
+
 ### [1.0.30](https://github.com/Kikobeats/count-microservice/compare/v1.0.29...v1.0.30) (2020-03-27)
 
 ### [1.0.29](https://github.com/Kikobeats/count-microservice/compare/v1.0.28...v1.0.29) (2020-03-25)

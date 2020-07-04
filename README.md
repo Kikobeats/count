@@ -58,7 +58,7 @@ For printing the value in your website, a representative code for doing that cou
 
 ## Database
 
-The service is backed at [Firebase](https://firebase.com/). You need to create an account (they are free!) and copy some relevant values you can find in your [Firebase accounts tab](https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk).
+The service is backed at [Firebase](https://firebase.com/). You need to create an account (it's free!) and copy some relevant values you can find in your [Firebase accounts tab](https://console.firebase.google.com/project/_/settings/serviceaccounts/adminsdk).
 
 ### FIRESTORE_PROJECT_ID
 

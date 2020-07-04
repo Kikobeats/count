@@ -22,7 +22,6 @@
     "pageviews"
   ],
   "dependencies": {
-    "chalk": "~4.1.0",
     "helmet": "~3.23.3",
     "keyv": "~4.0.1",
     "keyv-firestore": "~1.1.0",

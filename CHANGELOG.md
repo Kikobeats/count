@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/Kikobeats/count-microservice/compare/v1.0.38...v1.1.0) (2020-07-04)
+
+
+### Features
+
+* cors support ([1075146](https://github.com/Kikobeats/count-microservice/commit/1075146645b0be7959673ec89c143c2a2d18c385))
+
 ### [1.0.38](https://github.com/Kikobeats/count-microservice/compare/v1.0.37...v1.0.38) (2020-07-04)
 
 ### [1.0.37](https://github.com/Kikobeats/count-microservice/compare/v1.0.36...v1.0.37) (2020-07-04)

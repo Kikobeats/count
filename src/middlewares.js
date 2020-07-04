@@ -3,12 +3,12 @@
 const { RateLimiterMemory } = require('rate-limiter-flexible')
 const requestIp = require('request-ip')
 const { promisify } = require('util')
-const { send } = require('micro')
+const { send } = require('micri')
+
+const helmet = promisify(require('helmet')())
 
 const createDb = require('./db')
 const { RATE_LIMIT_WINDOW, RATE_LIMIT_MAX, API_KEY } = require('./constants')
-
-const helmet = promisify(require('helmet')())
 
 const rateLimiterMemory = new RateLimiterMemory({
   points: RATE_LIMIT_MAX,
@@ -39,16 +39,14 @@ const getId = req => {
 
 const upsert = async (req, res) => {
   const id = getId(req)
-  const quantity =
-    req.query.incr !== undefined
-      ? req.query.incr
-      : req.query.increment !== undefined && req.query.increment
+
+  const quantity = Number(req.query.increment || req.query.incr)
 
   const { get, init, increment } = createDb(req.params.collection)
   let data = (await get(id)) || { count: 0 }
   let status = 200
 
-  if (quantity !== undefined) {
+  if (Number.isFinite(quantity)) {
     data = await (data === undefined ? init : increment)(id, data, quantity)
     status = 201
   }
@@ -56,12 +54,11 @@ const upsert = async (req, res) => {
   return send(res, status, data)
 }
 
-const applyMiddleware = (service, middlewares = []) => {
-  return middlewares
+const applyMiddleware = (service, middlewares = []) =>
+  middlewares
     .filter(Boolean)
     .reverse()
     .reduce((fn, nextMiddleware) => nextMiddleware(fn), service)
-}
 
 const fromExpress = fn => handler => (req, res, ...rest) => {
   const next = () => handler(req, res, ...rest)

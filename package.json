@@ -22,13 +22,15 @@
     "pageviews"
   ],
   "dependencies": {
+    "debug-logfmt": "~1.0.4",
     "helmet": "~3.23.3",
     "keyv": "~4.0.1",
     "keyv-firestore": "~1.1.0",
-    "micro": "~9.3.4",
-    "micro-route": "~2.5.0",
+    "micri": "~4.2.0",
     "rate-limiter-flexible": "~2.1.7",
-    "request-ip": "~2.1.3"
+    "request-ip": "~2.1.3",
+    "to-query": "~1.6.0",
+    "url-pattern": "~1.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -39,7 +41,6 @@
     "git-dirty": "latest",
     "husky": "latest",
     "lint-staged": "latest",
-    "micro-dev": "latest",
     "npm-check-updates": "latest",
     "prettier-standard": "latest",
     "standard": "latest",
@@ -56,7 +57,7 @@
   "scripts": {
     "build": "untracked > .nowignore",
     "clean": "rm -rf node_modules",
-    "dev": "NODE_ENV=development micro-dev",
+    "dev": "TZ=UTC NODE_ENV=development DEBUG=count* node src/server.js",
     "lint": "standard-markdown README.md && standard",
     "postrelease": "npm run release:tags && npm run release:github",
     "prerelease": "npm run update:check",

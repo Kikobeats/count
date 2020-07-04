@@ -1,13 +1,15 @@
 {
-  "name": "count",
   "version": 2,
-  "public": true,
   "builds": [
     {
       "src": "src/index.js",
       "use": "@now/node"
     }
   ],
+  "env": {
+    "NODE_ENV": "production",
+    "DEBUG": "count*"
+  },
   "routes": [
     {
       "src": "/robots.txt",

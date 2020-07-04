@@ -113,7 +113,7 @@ The value should be expressed in milliseconds.
 
 Type: `number`
 
-It defines a rate limit window, where the vlaue is the maximum number of points can be consumed over `RATE_LIMIT_WINDOW`.
+It defines a rate limit window, where the value is the maximum number of points can be consumed over `RATE_LIMIT_WINDOW`.
 
 ## License
 

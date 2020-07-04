@@ -11,7 +11,7 @@ A simple microservice for counting things.
 
 It's inspired by [antirez.com](http://antirez.com) and [rauchg.com](https://rauchg.com/).
 
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/Kikobeats/count&env=API_KEY&env=FIRESTORE_PROJECT_ID&env=FIRESTORE_PRIVATE_KEY&env=FIRESTORE_CLIENT_EMAIL)
+[![Deploy with Vercel](https://zeit.co/button)](https://vercel.com/new/project?template=https://github.com/Kikobeats/count)
 
 # Usage
 

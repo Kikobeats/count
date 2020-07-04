@@ -1,9 +1,6 @@
 {
   "name": "count",
   "version": 2,
-  "regions": [
-    "all"
-  ],
   "public": true,
   "builds": [
     {
@@ -11,12 +8,6 @@
       "use": "@now/node"
     }
   ],
-  "env": {
-    "API_KEY": "@count.api_key",
-    "FIRESTORE_PROJECT_ID": "@count.firestore_project_id",
-    "FIRESTORE_PRIVATE_KEY": "@count.firestore_private_key",
-    "FIRESTORE_CLIENT_EMAIL": "@count.firestore_client_email"
-  },
   "routes": [
     {
       "src": "/robots.txt",

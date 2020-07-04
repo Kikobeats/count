@@ -80,7 +80,7 @@ Type: `string`
 
 Your email associated with your Firebase account.
 
-## Protection
+## Security
 
 The following environment variables are optional and they are used protecting abusive use of the service from external traffic.
 
@@ -96,6 +96,12 @@ The API key can be provided:
 - as `key` or `apiKey` as query parameter.
 
 You can use [randomkeygen.com](https://randomkeygen.com) for generating an unique API key.
+
+### DOMAINS
+
+Type: `string`|`string[]`
+
+The list of allowed domains that authorized to interact with the service.
 
 ## Rate Limit
 

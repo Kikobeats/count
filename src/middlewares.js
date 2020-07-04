@@ -1,12 +1,10 @@
 'use strict'
 
 const { RateLimiterMemory } = require('rate-limiter-flexible')
-const debug = require('debug-logfmt')('count')
 const requestIp = require('request-ip')
-const { getDomain } = require('tldts')
 const { promisify } = require('util')
+const createCors = require('cors')
 const { send } = require('micri')
-const cors = require('cors')
 
 const helmet = promisify(require('helmet')())
 
@@ -23,7 +21,7 @@ const rateLimiterMemory = new RateLimiterMemory({
   duration: RATE_LIMIT_WINDOW / 1000
 })
 
-const createRateLimit = () => async (req, res, next) => {
+const rateLimit = async (req, res, next) => {
   const key = requestIp.getClientIp(req)
   try {
     await rateLimiterMemory.consume(key, 1)
@@ -33,14 +31,7 @@ const createRateLimit = () => async (req, res, next) => {
   }
 }
 
-const createCors = allowedDomains =>
-  cors({
-    origin: (origin, cb) => {
-      const isAllowed = allowedDomains.includes(getDomain(origin))
-      debug({ origin, isAllowed })
-      return cb(null, isAllowed)
-    }
-  })
+const cors = createCors({ origin: ALLOWED_DOMAINS })
 
 const authentication = (req, res, next) => {
   const apiKey = req.headers['x-api-key'] || req.query.key || req.query.apiKey
@@ -85,8 +76,8 @@ const fromExpress = fn => handler => (req, res, ...rest) => {
 const middlewares = [
   fromExpress(helmet),
   fromExpress(authentication),
-  ALLOWED_DOMAINS && fromExpress(createCors(ALLOWED_DOMAINS)),
-  RATE_LIMIT_MAX && RATE_LIMIT_WINDOW && fromExpress(createRateLimit())
+  ALLOWED_DOMAINS.length && fromExpress(cors),
+  RATE_LIMIT_MAX && RATE_LIMIT_WINDOW && fromExpress(rateLimit)
 ]
 
 module.exports = applyMiddleware(upsert, middlewares)

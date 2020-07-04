@@ -23,12 +23,12 @@
   ],
   "dependencies": {
     "chalk": "~4.1.0",
-    "helmet": "~3.23.0",
-    "keyv": "~4.0.0",
+    "helmet": "~3.23.3",
+    "keyv": "~4.0.1",
     "keyv-firestore": "~1.1.0",
     "micro": "~9.3.4",
     "micro-route": "~2.5.0",
-    "rate-limiter-flexible": "~2.1.3",
+    "rate-limiter-flexible": "~2.1.7",
     "request-ip": "~2.1.3"
   },
   "devDependencies": {

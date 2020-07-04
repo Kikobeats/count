@@ -1,6 +1,7 @@
 'use strict'
 
 const { RateLimiterMemory } = require('rate-limiter-flexible')
+const debug = require('debug-logfmt')('count')
 const requestIp = require('request-ip')
 const { getDomain } = require('tldts')
 const { promisify } = require('util')
@@ -36,6 +37,7 @@ const createCors = allowedDomains =>
   cors({
     origin: (origin, cb) => {
       const isAllowed = allowedDomains.includes(getDomain(origin))
+      debug({ origin, isAllowed })
       return cb(null, isAllowed)
     }
   })

@@ -24,7 +24,7 @@
   "dependencies": {
     "cors": "~2.8.5",
     "debug-logfmt": "~1.0.4",
-    "helmet": "~3.23.3",
+    "helmet": "~4.0.0",
     "keyv": "~4.0.1",
     "keyv-firestore": "~1.1.0",
     "micri": "~4.2.0",

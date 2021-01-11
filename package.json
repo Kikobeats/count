@@ -28,7 +28,7 @@
     "keyv": "~4.0.1",
     "keyv-firestore": "~1.1.0",
     "micri": "~4.3.0",
-    "rate-limiter-flexible": "~2.1.7",
+    "rate-limiter-flexible": "~2.2.1",
     "request-ip": "~2.1.3",
     "to-query": "~1.6.0",
     "url-pattern": "~1.0.3"

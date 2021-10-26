@@ -1,0 +1,11 @@
+{
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "rewrites": [
+    { "source": "/favicon.ico", "destination": "https://emojipedia-api.vercel.app/?emoji=%F0%9F%92%AF" }
+  ]
+}

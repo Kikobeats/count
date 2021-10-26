@@ -22,14 +22,9 @@
     "pageviews"
   ],
   "dependencies": {
-    "cors": "~2.8.5",
-    "debug-logfmt": "~1.0.4",
-    "helmet": "~4.6.0",
-    "keyv": "~4.0.3",
-    "keyv-firestore": "~1.1.1",
-    "micri": "~4.3.0",
-    "rate-limiter-flexible": "~2.3.0",
-    "request-ip": "~2.1.3",
+    "next": "~12.0.0",
+    "react": "~17.0.2",
+    "react-dom": "~17.0.2",
     "to-query": "~1.6.1",
     "url-pattern": "~1.0.3"
   },
@@ -50,15 +45,15 @@
     "untracked": "latest"
   },
   "engines": {
-    "node": ">= 10"
+    "node": ">= 12"
   },
   "files": [
     "src"
   ],
   "scripts": {
-    "build": "untracked > .nowignore",
+    "build": "TZ=UTC NODE_ENV=production next build",
     "clean": "rm -rf node_modules",
-    "dev": "TZ=UTC NODE_ENV=development DEBUG=count* node src/server.js",
+    "dev": "TZ=UTC NODE_ENV=development DEBUG=count* next dev",
     "lint": "standard-markdown README.md && standard",
     "postrelease": "npm run release:tags && npm run release:github",
     "prerelease": "npm run update:check",

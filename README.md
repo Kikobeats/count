@@ -1,7 +1,14 @@
 <p align="center">
+  <br />
   <img src="https://emojipedia-api.vercel.app/?emoji=%F0%9F%92%AF" height="128">
-  <h2 align="center">A simple microservice for counting things.</h2>
-  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FKikobeats%2Fcount"><img src="https://vercel.com/button" alt="Deploy with Vercel"/></a>
+<h2 align="center"> A simple microservice for counting things. <br />
+  <br />
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FKikobeats%2Fcount">
+    <img src="https://vercel.com/button" alt="Deploy with Vercel" />
+  </a>
+  <br />
+  <br />
+</h2>
 </p>
 
 # Usage

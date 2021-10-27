@@ -1,7 +1,7 @@
 {
   "name": "count",
-  "description": "A simple microservice for counting things",
-  "homepage": "https://nicedoc.io/Kikobeats/count-microservice",
+  "description": "CounA simple microservice for counting things",
+  "homepage": "https://nicedoc.io/Kikobeats/count",
   "version": "1.1.8",
   "main": "src/index.js",
   "author": {
@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kikobeats/count-microservice.git"
+    "url": "git+https://github.com/Kikobeats/count.git"
   },
   "bugs": {
-    "url": "https://github.com/Kikobeats/count-microservice/issues"
+    "url": "https://github.com/Kikobeats/count/issues"
   },
   "keywords": [
     "count",

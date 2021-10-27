@@ -26,11 +26,7 @@ kikobeats.com/culture-shipping → count.kikobeats.com/pageviews/culture-shippin
 The service will return you the current counter, and the first and last timestamp associated:
 
 ```json
-{
-  "updatedAt": 1564327678670,
-  "createdAt": 1564327676653,
-  "count": 25
-}
+{ "count": 25 }
 ```
 
 For counting thing, you need to perform a `GET` to `/:collection/:key`, being supported the following query string:
@@ -53,6 +49,17 @@ For printing the value in your website, a representative code for doing that cou
 ```
 
 # Environment Variables
+
+## Authentication
+
+### DOMAINS
+
+*Required*</br>
+Type: `string`|`string[]`
+
+The list of allowed domains authorized to consume your Microlink API credentials.
+
+Note domains should be provided in the [URL.origin](https://developer.mozilla.org/en-US/docs/Web/API/URL/origin) format (e.g., `'https://example.com'`).
 
 ## Database
 

@@ -2,39 +2,51 @@
 
 import UrlPattern from 'url-pattern'
 
-import { getCollection } from '@/lib/upstash'
-import { toQuery } from '@/lib/to-query'
+import { getDb } from '@/lib/upstash'
 
-const pattern = new UrlPattern('/:collection/:key')
+const pattern = new UrlPattern('/:namespace/:key')
+
+const allowedDomains = process.env.DOMAINS.split(',').map(n => n.trim())
+
+const isProduction = process.env.NODE_ENV === 'production'
+
+const isAllowedDomain = isProduction
+  ? origin => allowedDomains.includes(origin)
+  : () => true
 
 export default async function middleware (request) {
   const url = request.nextUrl
+  const origin = request.headers.get('origin')
 
-  if (url.pathname === '/' || url.pathname === '/robots.txt') {
+  if (request.method === 'OPTIONS') {
     return new Response(null, {
-      status: 204
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': origin,
+        'Access-Control-Allow-Methods': 'GET',
+        'Access-Control-Max-Age': '86400'
+      }
     })
   }
 
-  const query = toQuery(url)
+  if (url.pathname === '/' || url.pathname === '/robots.txt') {
+    return new Response()
+  }
 
-  const quantity = Number(query.incr || query.increment)
+  if (!isAllowedDomain(origin)) {
+    return new Response(null, { status: 403 })
+  }
 
-  const { collection, key } = pattern.match(url.pathname)
+  const { namespace, key } = pattern.match(url.pathname)
 
-  const { get, set } = getCollection(collection)
+  const increment = getDb(namespace)
 
-  let value = (await get(key)) || { count: 0 }
-  if (Number.isFinite(quantity)) value = await set(key, value, quantity)
+  const value = await increment(key)
 
-  return new Response(
-    JSON.stringify(value, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Method': 'GET',
-        'Access-Control-Allow-Origin': url.origin,
-        'Access-Control-Allow-Headers': '*'
-      }
-    })
-  )
+  return new Response(JSON.stringify(value), {
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': origin
+    }
+  })
 }

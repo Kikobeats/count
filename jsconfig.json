@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/package.json": ["./package.json"],
+      "@/*": ["./*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

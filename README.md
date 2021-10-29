@@ -67,13 +67,13 @@ The service is backed at [Upstash](https://upstash.com).
 
 You need to create an account (it's free!) and copy some relevant values specified below.
 
-### UPSTASH_URL
+### UPSTASH_REDIS_REST_URL
 
 Type: `string`
 
 Your Upstash database URL to use.
 
-### UPSTASH_TOKEN
+### UPSTASH_REDIS_REST_TOKEN
 
 Type: `string`
 

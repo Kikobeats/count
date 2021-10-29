@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.2.0 (2021-10-29)
+
+
+### Features
+
+* add bulk support ([25a0ca2](https://github.com/Kikobeats/count/commit/25a0ca2b07094a9e87af84d364a0fa1c8905a199))
+
 ### 1.1.9 (2021-10-29)
 
 ### [1.1.8](https://github.com/Kikobeats/count-microservice/compare/v1.1.7...v1.1.8) (2021-01-18)

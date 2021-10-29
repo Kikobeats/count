@@ -9,6 +9,12 @@
     "name": "Kiko Beats",
     "url": "https://kikobeats.com"
   },
+  "contributors": [
+    {
+      "name": "ademilter",
+      "email": "ademilter@gmail.com"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kikobeats/count.git"

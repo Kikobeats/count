@@ -2,7 +2,7 @@
 
 import UrlPattern from 'url-pattern'
 
-import { getDb } from '@/lib/upstash'
+import { upstash } from '@/lib/upstash'
 
 const pattern = new UrlPattern('/:namespace/:key')
 
@@ -39,9 +39,12 @@ export default async function middleware (request) {
 
   const { namespace, key } = pattern.match(url.pathname)
 
-  const increment = getDb(namespace)
+  const readOnly = !url.searchParams.has('incr')
 
-  const value = await increment(key)
+  const value = await upstash([
+    readOnly ? 'get' : 'incr',
+    `${namespace}:${key}`
+  ])
 
   return new Response(JSON.stringify(value), {
     headers: {

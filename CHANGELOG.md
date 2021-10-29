@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.2.1 (2021-10-29)
+
+
+### Bug Fixes
+
+* setup default value for collection ([a5b64bb](https://github.com/Kikobeats/count/commit/a5b64bb52969a614d772ea4f0d2ba469d6d3be81))
+
 ## 1.2.0 (2021-10-29)
 
 

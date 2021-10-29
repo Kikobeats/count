@@ -41,15 +41,13 @@
     "conventional-github-releaser": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
-    "git-dirty": "latest",
-    "husky": "latest",
     "lint-staged": "latest",
     "npm-check-updates": "latest",
     "prettier-standard": "latest",
+    "simple-git-hooks": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
-    "standard-version": "latest",
-    "untracked": "latest"
+    "standard-version": "latest"
   },
   "engines": {
     "node": ">= 12"
@@ -60,10 +58,11 @@
   "scripts": {
     "build": "TZ=UTC NODE_ENV=production next build",
     "clean": "rm -rf node_modules",
+    "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "dev": "TZ=UTC NODE_ENV=development DEBUG=count* next dev",
     "lint": "standard-markdown README.md && standard",
     "postrelease": "npm run release:tags && npm run release:github",
-    "prerelease": "npm run update:check",
+    "prerelease": "npm run update:check && npm run contributors",
     "pretest": "npm run lint",
     "release": "standard-version -a",
     "release:github": "conventional-github-releaser -p angular",
@@ -90,11 +89,15 @@
     "package.json": [
       "finepack"
     ],
-    "*.js": [
+    "*.js,!*.min.js,": [
       "prettier-standard"
     ],
     "*.md": [
       "standard-markdown"
     ]
+  },
+  "simple-git-hooks": {
+    "commit-msg": "npx commitlint --edit",
+    "pre-commit": "npx lint-staged"
   }
 }

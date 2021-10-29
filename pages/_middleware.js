@@ -1,8 +1,7 @@
 /* global Response */
 
 import UrlPattern from 'url-pattern'
-
-import { upstash } from '@/lib/upstash'
+import { incr, get } from '@upstash/redis'
 
 const pattern = new UrlPattern('/:namespace/:key')
 
@@ -41,10 +40,11 @@ export default async function middleware (request) {
 
   const readOnly = !url.searchParams.has('incr')
 
-  const value = await upstash([
-    readOnly ? 'get' : 'incr',
-    `${namespace}:${key}`
-  ])
+  const redisKey = `${namespace}:${key}`
+  let value = 0
+
+  const { data } = readOnly ? await get(redisKey) : await incr(redisKey)
+  if (data) value = data
 
   return new Response(JSON.stringify(value), {
     headers: {

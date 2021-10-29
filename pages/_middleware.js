@@ -9,6 +9,8 @@ const allowedDomains = process.env.DOMAINS.split(',').map(n => n.trim())
 
 const isProduction = process.env.NODE_ENV === 'production'
 
+const getCount = value => (value !== null ? value : 0)
+
 const isAllowedDomain = isProduction
   ? origin => allowedDomains.includes(origin)
   : () => true
@@ -38,18 +40,16 @@ export default async function middleware (request) {
 
   const { namespace, key } = exec(url.pathname, pattern)
 
-  const readOnly = !url.searchParams.has('incr')
+  const isReadOnly = !url.searchParams.has('incr')
+  const isCollection = key.includes(',')
 
-  let value = 0
-
-  const promise = (() => {
-    if (!readOnly) return incr(`${namespace}:${key}`)
-    if (!key.includes(',')) return get(`${namespace}:${key}`)
+  const { data } = await (() => {
+    if (!isReadOnly) return incr(`${namespace}:${key}`)
+    if (!isCollection) return get(`${namespace}:${key}`)
     return mget(key.split(',').map(key => `${namespace}:${key}`))
   })()
 
-  const { data } = await promise
-  if (data) value = data
+  const value = isCollection ? data.map(getCount) : getCount(data)
 
   return new Response(JSON.stringify(value), {
     headers: {

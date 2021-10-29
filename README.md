@@ -21,12 +21,7 @@ Just pass the blog post relative path for counting pageviews:
 
 ```
 kikobeats.com/culture-shipping → count.kikobeats.com/pageviews/culture-shipping?incr → HTTP 200 OK
-```
-
-The service will return you the current counter, and the first and last timestamp associated:
-
-```json
-{ "count": 25 }
+// => "25"
 ```
 
 For counting thing, you need to perform a `GET` to `/:collection/:key`, being supported the following query string:
@@ -41,7 +36,7 @@ For printing the value in your website, a representative code for doing that cou
 <script>
   fetch(`'https://count.kikobeats.com/pageviews/${window.location.pathname}?incr`)
     .then(res => res.json())
-    .then(({ count }) => {
+    .then(count => {
       document.querySelector('.pageviews-container').classList.remove('display-none')
       document.querySelector('.pageviews-count').textContent = count
     })

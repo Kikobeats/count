@@ -15,18 +15,26 @@
 
 You can count whatever you want. It's inspired by [antirez.com](http://antirez.com) and [rauchg.com](https://rauchg.com/).
 
-Imagine you are visiting a blog post and you want to count views.
-
-Just pass the blog post relative path for counting pageviews:
+For seeing your counters, just perform a `GET` to `/:collection/:key`:
 
 ```
-kikobeats.com/culture-shipping → count.kikobeats.com/pageviews/culture-shipping?incr → HTTP 200 OK
-// => "25"
+curl https://count.kikobeats.com/pageviews/culture-shipping
+// => "204"
 ```
 
-For counting thing, you need to perform a `GET` to `/:collection/:key`, being supported the following query string:
+You can also getting counters in a bulk using a comma as separator:
 
-- **incr**: When it is present, it specifies how much increment the value.
+```
+curl https://count.kikobeats.com/pageviews/culture-shipping,professional-career
+// => "204,98"
+```
+
+If you want to increment a counter, pass `incr` query parameter:
+
+```
+curl https://count.kikobeats.com/pageviews/culture-shipping?incr
+// => "205"
+```
 
 It doesn't matter if your `id` contains final slash; it will be sanitized.
 

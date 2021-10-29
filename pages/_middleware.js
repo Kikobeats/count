@@ -1,9 +1,9 @@
 /* global Response */
 
-import UrlPattern from 'url-pattern'
-import { incr, get } from '@upstash/redis'
+import { incr, get, mget } from '@upstash/redis'
+import { exec, parse } from 'matchit'
 
-const pattern = new UrlPattern('/:namespace/:key')
+const pattern = parse('/:namespace/:key')
 
 const allowedDomains = process.env.DOMAINS.split(',').map(n => n.trim())
 
@@ -36,14 +36,19 @@ export default async function middleware (request) {
     return new Response(null, { status: 403 })
   }
 
-  const { namespace, key } = pattern.match(url.pathname)
+  const { namespace, key } = exec(url.pathname, pattern)
 
   const readOnly = !url.searchParams.has('incr')
 
-  const redisKey = `${namespace}:${key}`
   let value = 0
 
-  const { data } = readOnly ? await get(redisKey) : await incr(redisKey)
+  const promise = (() => {
+    if (!readOnly) return incr(`${namespace}:${key}`)
+    if (!key.includes(',')) return get(`${namespace}:${key}`)
+    return mget(key.split(',').map(key => `${namespace}:${key}`))
+  })()
+
+  const { data } = await promise
   if (data) value = data
 
   return new Response(JSON.stringify(value), {

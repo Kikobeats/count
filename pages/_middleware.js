@@ -30,7 +30,11 @@ export default async function middleware (request) {
     })
   }
 
-  if (url.pathname === '/' || url.pathname === '/robots.txt') {
+  if (
+    url.pathname === '/' ||
+    url.pathname === '/favicon.ico' ||
+    url.pathname === '/robots.txt'
+  ) {
     return new Response()
   }
 

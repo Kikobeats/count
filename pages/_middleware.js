@@ -54,6 +54,7 @@ export default async function middleware (request) {
   })()
 
   const value = isCollection ? data.map(getCount) : getCount(data)
+  console.log({ isReadOnly, isCollection, value })
 
   return new Response(JSON.stringify(value), {
     headers: {

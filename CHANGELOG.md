@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.2.6 (2021-11-08)
+
+
+### Bug Fixes
+
+* lock @upstash/redis dependency ([21a0cc6](https://github.com/Kikobeats/count/commit/21a0cc6b9a9b646b564948d9fd8fe179098eeb0a))
+
 ### 1.2.5 (2021-11-08)
 
 ### 1.2.4 (2021-11-08)

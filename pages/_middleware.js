@@ -38,7 +38,10 @@ export default async function middleware (request) {
     return new Response()
   }
 
-  if (!isAllowedDomain(origin)) {
+  const isAllowed = isAllowedDomain(origin)
+
+  if (!isAllowed) {
+    console.error({ origin, isAllowed })
     return new Response(null, { status: 403 })
   }
 
@@ -54,7 +57,7 @@ export default async function middleware (request) {
   })()
 
   const value = isCollection ? data.map(getCount) : getCount(data)
-  console.log({ isReadOnly, isCollection, value })
+  console.log({ isReadOnly, isCollection, key: `${namespace}:${key}`, value })
 
   return new Response(JSON.stringify(value), {
     headers: {

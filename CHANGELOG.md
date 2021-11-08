@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.2.8 (2021-11-08)
+
+
+### Bug Fixes
+
+* downgrade upstash dependency ([5e44334](https://github.com/Kikobeats/count/commit/5e443344d2c96d71192891e2eb79459fc8614d67))
+
 ### 1.2.7 (2021-11-08)
 
 ### 1.2.6 (2021-11-08)

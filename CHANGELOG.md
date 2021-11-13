@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.2.11 (2021-11-13)
+
+
+### Bug Fixes
+
+* copy ([b66a0ef](https://github.com/Kikobeats/count/commit/b66a0ef3d154be6cc83720e1dbba5860da8f61c5))
+
 ### 1.2.10 (2021-11-13)
 
 ### 1.2.9 (2021-11-08)

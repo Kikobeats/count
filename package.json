@@ -1,6 +1,6 @@
 {
   "name": "count",
-  "description": "CounA simple microservice for counting things",
+  "description": "Count simple microservice for counting things",
   "homepage": "https://nicedoc.io/Kikobeats/count",
   "version": "1.2.10",
   "main": "pages/_middleware.js",

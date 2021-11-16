@@ -53,7 +53,8 @@ export default async function middleware (request) {
   const { data } = await (() => {
     if (!isReadOnly) return incr(`${namespace}:${key}`)
     if (!isCollection) return get(`${namespace}:${key}`)
-    return mget(key.split(',').map(key => `${namespace}:${key}`))
+    const keys = key.split(',').map(key => `${namespace}:${key}`)
+    return mget(...keys)
   })()
 
   const value = isCollection ? data.map(getCount) : getCount(data)

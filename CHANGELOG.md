@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.2.12 (2021-11-16)
+
+
+### Bug Fixes
+
+* mget arguments ([1e9313d](https://github.com/Kikobeats/count/commit/1e9313d424bbe85615b7237672a6133326bbc479))
+
 ### 1.2.11 (2021-11-13)
 
 

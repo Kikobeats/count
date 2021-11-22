@@ -1,7 +1,13 @@
 /* global Response */
 
-import { incr, get, mget } from '@upstash/redis'
+import { auth, incr, get, mget } from '@upstash/redis'
 import { exec, parse } from 'matchit'
+
+auth({
+  url: process.env.UPSTASH_REDIS_REST_URL,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN,
+  edgeUrl: process.env.UPSTASH_REDIS_EDGE_URL
+})
 
 const pattern = parse('/:namespace/:key')
 

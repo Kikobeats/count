@@ -1,7 +1,17 @@
 /* global Response */
 
 import { auth, incr, get, mget } from '@upstash/redis'
-import { exec, parse } from 'matchit'
+import { parse } from 'regexparam'
+
+function exec (path, result) {
+  let i = 0
+  const out = {}
+  const matches = result.pattern.exec(path)
+  while (i < result.keys.length) {
+    out[result.keys[i]] = matches[++i] || null
+  }
+  return out
+}
 
 auth({
   url: process.env.UPSTASH_REDIS_REST_URL,
@@ -9,7 +19,7 @@ auth({
   // edgeUrl: process.env.UPSTASH_REDIS_EDGE_URL
 })
 
-const pattern = parse('/:namespace/:key')
+const router = parse('/:namespace/:key')
 
 const allowedDomains = process.env.DOMAINS.split(',').map(n => n.trim())
 
@@ -51,7 +61,7 @@ export default async function middleware (request) {
     return new Response(null, { status: 403 })
   }
 
-  const { namespace, key } = exec(url.pathname, pattern)
+  const { namespace, key } = exec(url.pathname, router)
 
   const isReadOnly = !url.searchParams.has('incr')
   const isCollection = key.includes(',')

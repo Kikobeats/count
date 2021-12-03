@@ -28,7 +28,7 @@
     "pageviews"
   ],
   "dependencies": {
-    "@upstash/redis": "0.1.6",
+    "@upstash/redis": "0.1.8",
     "matchit": "~1.1.0",
     "next": "~12.0.4",
     "react": "~17.0.2",

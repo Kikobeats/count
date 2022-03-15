@@ -1,7 +1,16 @@
 /* global Response */
 
-import { auth, incr, get, mget } from '@upstash/redis'
+import { Redis } from '@upstash/redis'
 import { parse } from 'regexparam'
+
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN
+})
+
+const incr = redis.incr.bind(redis)
+const get = redis.get.bind(redis)
+const mget = redis.mget.bind(redis)
 
 function exec (path, result) {
   let i = 0
@@ -12,12 +21,6 @@ function exec (path, result) {
   }
   return out
 }
-
-auth({
-  url: process.env.UPSTASH_REDIS_REST_URL,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN
-  // edgeUrl: process.env.UPSTASH_REDIS_EDGE_URL
-})
 
 const router = parse('/:namespace/:key')
 
@@ -66,7 +69,7 @@ export default async function middleware (request) {
   const isReadOnly = !url.searchParams.has('incr')
   const isCollection = key.includes(',')
 
-  const { data } = await (() => {
+  const data = await (() => {
     if (!isReadOnly) return incr(`${namespace}:${key}`)
     if (!isCollection) return get(`${namespace}:${key}`)
     const keys = key.split(',').map(key => `${namespace}:${key}`)

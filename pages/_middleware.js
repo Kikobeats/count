@@ -3,14 +3,10 @@
 import { Redis } from '@upstash/redis'
 import { parse } from 'regexparam'
 
-const redis = new Redis({
+const { incr, get, mget } = new Redis({
   url: process.env.UPSTASH_REDIS_REST_URL,
   token: process.env.UPSTASH_REDIS_REST_TOKEN
 })
-
-const incr = redis.incr.bind(redis)
-const get = redis.get.bind(redis)
-const mget = redis.mget.bind(redis)
 
 function exec (path, result) {
   let i = 0

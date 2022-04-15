@@ -28,7 +28,7 @@
     "pageviews"
   ],
   "dependencies": {
-    "@upstash/redis": "~1.1.0",
+    "@upstash/redis": "~1.2.0",
     "next": "~12.1.0",
     "react": "~17.0.2",
     "react-dom": "~17.0.2",

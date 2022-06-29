@@ -1,3 +1,5 @@
+/* global Response */
+
 import { Redis } from '@upstash/redis'
 import { parse } from 'regexparam'
 
@@ -34,7 +36,7 @@ const isAllowedDomain = isProduction
 
 export default async request => {
   const url = request.nextUrl
-
+  url.pathname = url.pathname.replace('/api', '')
   const origin = request.headers.get('origin')
 
   if (request.method === 'OPTIONS') {
@@ -47,19 +49,11 @@ export default async request => {
       }
     })
   }
-  if (
-    url.pathname === '/' ||
-    url.pathname === '/favicon.ico' ||
-    url.pathname === '/robots.txt'
-  ) {
-    return new Response()
-  }
   const isAllowed = isAllowedDomain(origin)
   if (!isAllowed) {
     console.error({ origin, isAllowed })
     return new Response(null, { status: 403 })
   }
-  console.log('debug', url.pathname, router)
   const { namespace, key } = exec(url.pathname, router)
   const isReadOnly = !url.searchParams.has('incr')
   const isCollection = key.includes(',')

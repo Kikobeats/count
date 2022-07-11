@@ -1,11 +1,7 @@
 {
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    }
-  ],
-  "rewrites": [
-    { "source": "/favicon.ico", "destination": "https://emojipedia-api.vercel.app/?emoji=%F0%9F%92%AF" }
+  "routes": [
+    { "src": "/", "status": 204 },
+    { "src": "/robots.txt", "status": 204 },
+    {"src": "/favicon.ico", "dest": "https://emojipedia-api.vercel.app/?emoji=%F0%9F%92%AF"}
   ]
 }

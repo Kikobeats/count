@@ -29,7 +29,7 @@
   ],
   "dependencies": {
     "@upstash/redis": "~1.13.0",
-    "next": "~12.2.2",
+    "next": "~12.3.0",
     "react": "~18.2.0",
     "react-dom": "~18.2.0",
     "regexparam": "~2.0.1"

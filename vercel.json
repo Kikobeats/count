@@ -10,6 +10,10 @@
       "dest": "https://emojipedia-api.vercel.app/?emoji=%F0%9F%92%AF"
     },
     {
+      "src": "/",
+      "status": 200
+    },
+    {
       "src": "/(.*)",
       "dest": "/api/index.js"
     }

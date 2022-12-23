@@ -1,7 +1,17 @@
 {
+  "public": true,
   "routes": [
-    { "src": "/", "status": 204 },
-    { "src": "/robots.txt", "status": 204 },
-    {"src": "/favicon.ico", "dest": "https://emojipedia-api.vercel.app/?emoji=%F0%9F%92%AF"}
+    {
+      "src": "/robots.txt",
+      "status": 204
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "https://emojipedia-api.vercel.app/?emoji=%F0%9F%92%AF"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.js"
+    }
   ]
 }

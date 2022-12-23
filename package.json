@@ -1,7 +1,7 @@
 {
   "name": "count",
   "description": "Count simple microservice for counting things",
-  "homepage": "https://nicedoc.io/Kikobeats/count",
+  "homepage": "https://github.com/Kikobeats/count",
   "version": "1.2.48",
   "main": "pages/_middleware.js",
   "author": {
@@ -29,9 +29,6 @@
   ],
   "dependencies": {
     "@upstash/redis": "~1.18.0",
-    "next": "~13.1.0",
-    "react": "~18.2.0",
-    "react-dom": "~18.2.0",
     "regexparam": "~2.0.1"
   },
   "devDependencies": {
@@ -55,13 +52,11 @@
     "src"
   ],
   "scripts": {
-    "build": "TZ=UTC NODE_ENV=production next build",
     "clean": "rm -rf node_modules",
     "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
-    "dev": "TZ=UTC NODE_ENV=development DEBUG=count* next dev",
     "lint": "standard-markdown README.md && standard",
     "postrelease": "npm run release:tags && npm run release:github",
-    "prerelease": "npm run update:check && npm run contributors",
+    "prerelease": "npm run update:check",
     "pretest": "npm run lint",
     "release": "standard-version -a",
     "release:github": "conventional-github-releaser -p angular",

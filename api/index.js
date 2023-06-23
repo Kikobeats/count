@@ -33,7 +33,7 @@ const isAllowedDomain = isProduction
 const baseUrl = ({ headers }) =>
   `${headers.get('x-forwarded-proto')}://${headers.get('x-forwarded-host')}`
 
-export const config = { runtime: 'experimental-edge' }
+export const config = { runtime: 'edge' }
 
 export default async request => {
   const url = new URL(request.url, baseUrl(request))

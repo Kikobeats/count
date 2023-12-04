@@ -29,7 +29,7 @@
   ],
   "dependencies": {
     "@upstash/redis": "~1.25.0",
-    "regexparam": "~2.0.1"
+    "regexparam": "~3.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",

@@ -2,7 +2,7 @@
   "name": "count",
   "description": "Count simple microservice for counting things",
   "homepage": "https://github.com/Kikobeats/count",
-  "version": "1.2.61",
+  "version": "1.2.62",
   "main": "pages/_middleware.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",

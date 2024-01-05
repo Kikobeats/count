@@ -28,7 +28,7 @@
     "pageviews"
   ],
   "dependencies": {
-    "@upstash/redis": "~1.27.1",
+    "@upstash/redis": "~1.28.0",
     "regexparam": "~3.0.0"
   },
   "devDependencies": {
